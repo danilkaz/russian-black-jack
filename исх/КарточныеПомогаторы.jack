@@ -1,5 +1,5 @@
 class КарточныеПомогаторы {
-    function string ПолучитьМастьПоИндексу(int индекс) {
+    function String ПолучитьМастьПоИндексу(int индекс) {
         if (индекс = 0) {
             return "Piki";
         } 
@@ -12,7 +12,7 @@ class КарточныеПомогаторы {
         return "Kresti";
     }
 
-    function string ПолучитьСтроковоеПредставлениеПоИндексу(int индекс) {
+    function String ПолучитьСтроковоеПредставлениеПоИндексу(int индекс) {
         if (индекс = 0) {
             return "Dvoyka";
         }

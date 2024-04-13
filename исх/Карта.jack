@@ -1,13 +1,34 @@
 class Карта {
-    field string масть;
-    field string строковоеПредставление;
+    field String масть;
+    field String строковоеПредставление;
     field int значение;
 
-    constructor Карта new(string масть, string строковоеПредставление, int значение) {
-        let масть = масть;
-        let строковоеПредставление = строковоеПредставление;
-        let значение = значение;
+    constructor Карта Новый(String м, String сп, int з) {
+        let масть = м;
+        let строковоеПредставление = сп;
+        let значение = з;
 
         return this;
+    }
+
+    method String ПолучитьМасть() {
+        return масть;
+    }
+
+    method String ПолучитьСтроковоеПредставление() {
+        return строковоеПредставление;
+    }
+
+    method int ПолучитьЗначение() {
+        return значение;
+    }
+
+    method void печатьКарты() {
+        do Output.printString(масть);
+        do Output.printString(" ");
+        do Output.printString(строковоеПредставление);
+        do Output.println();
+
+        return;
     }
 }

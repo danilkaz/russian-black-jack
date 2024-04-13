@@ -1,9 +1,16 @@
 class Main {
     function void main() {
+        var int семя;
         var int количествоИгроков;
+
         var Игра игра;
         
+        let семя = Keyboard.readInt("Vvedite semya: ");
+        do Рандом.УстановитьСемя(семя);
+
         let количествоИгроков = Keyboard.readInt("Vvedite koli4estvo igrokov: ");
+
+        do Экран.Очистить();
 
         let игра = Игра.new(количествоИгроков);
 

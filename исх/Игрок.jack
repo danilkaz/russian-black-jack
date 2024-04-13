@@ -7,6 +7,10 @@ class Игрок {
         return this;
     }
 
+    method int ПолучитьСчёт() {
+        return счёт;
+    }
+
     method void ДобавитьОчки(int количество) {
         let счёт = счёт + количество;
 

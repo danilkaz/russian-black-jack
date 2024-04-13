@@ -1,0 +1,8 @@
+class Экран {
+    function void Очистить() {
+        do Screen.clearScreen();
+        do Output.moveCursor(0, 0);
+
+        return;
+    }
+}

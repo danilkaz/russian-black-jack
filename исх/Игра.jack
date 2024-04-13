@@ -1,18 +1,61 @@
 class Игра {
+    field int количествоИгроков;
     field Array игроки;
     field Колода колода;
 
-    constructor Игра new(int количествоИгроков) {
-        let игроки = Array.new(количествоИгроков);
+    constructor Игра new(int кол) {
+        let количествоИгроков = кол;
+        let игроки = Array.new(кол);
         let колода = Колода.new();
 
         return this;
     }
 
     method void Стартовать() {
+        var int индексИгрока;
+
+        let индексИгрока = 0;
+
+        while (индексИгрока < количествоИгроков) {
+            let игроки[индексИгрока] = Игрок.new();
+            do игратьСИгроком(индексИгрока);
+
+            let индексИгрока = индексИгрока + 1;
+        }
         // todo раздать по 2 карты каждому игроку
         // цикл -> идем по каждому игроку и спрашиваем - еще или хватит
 
         return;
     }
+
+    method void игратьСИгроком(int индексИгрока) {
+        var Карта карта;
+        var Игрок игрок;
+
+        let игрок = игроки[индексИгрока];
+
+        let карта = колода.ВыдатьКарту();
+        do игрок.ДобавитьОчки(карта.ПолучитьЗначение());
+
+        do Output.printString("Diler vbldal kartu ");
+        do карта.печатьКарты();
+        do Output.println();
+        do Output.printString("Vash schet ");
+        do Output.printInt(игрок.ПолучитьСчёт());
+        do Output.println();
+
+        let карта = колода.ВыдатьКарту();
+        do игрок.ДобавитьОчки(карта.ПолучитьЗначение());
+
+        do Output.printString("Diler vbldal kartu ");
+        do карта.печатьКарты();
+        do Output.println();
+        do Output.printString("Vash schet ");
+        do Output.printInt(игрок.ПолучитьСчёт());
+        do Output.println();
+
+        return;
+    }
+
+    
 }
