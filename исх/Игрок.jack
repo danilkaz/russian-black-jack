@@ -1,0 +1,15 @@
+class Игрок {
+    field int счёт;
+
+    constructor Игрок new() {
+        let счёт = 0;
+
+        return this;
+    }
+
+    method void ДобавитьОчки(int количество) {
+        let счёт = счёт + количество;
+
+        return;
+    }
+}

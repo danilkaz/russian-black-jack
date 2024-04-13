@@ -1,0 +1,14 @@
+class Main {
+    function void main() {
+        var int количествоИгроков;
+        var Игра игра;
+        
+        let количествоИгроков = Keyboard.readInt("Vvedite koli4estvo igrokov: ");
+
+        let игра = Игра.new(количествоИгроков);
+
+        do игра.Стартовать();
+
+        return;
+    }
+}

@@ -1,0 +1,64 @@
+class КарточныеПомогаторы {
+    function string ПолучитьМастьПоИндексу(int индекс) {
+        if (индекс = 0) {
+            return "Piki";
+        } 
+        if (индекс = 1) {
+            return "4ervi";
+        } 
+        if (индекс = 2) {
+            return "Bubi";
+        }
+        return "Kresti";
+    }
+
+    function string ПолучитьСтроковоеПредставлениеПоИндексу(int индекс) {
+        if (индекс = 0) {
+            return "Dvoyka";
+        }
+        if (индекс = 1) {
+            return "Troyka";
+        }
+        if (индекс = 2) {
+            return "4etverka";
+        }
+        if (индекс = 3) {
+            return "Pyaterka";
+        }
+        if (индекс = 4) {
+            return "Shesterka";
+        }
+        if (индекс = 5) {
+            return "Semyorka";
+        }
+        if (индекс = 6) {
+            return "Vosmyorka";
+        }
+        if (индекс = 7) {
+            return "Devyatka";
+        }
+        if (индекс = 8) {
+            return "Desyatka";
+        }
+        if (индекс = 9) {
+            return "Valet";
+        }
+        if (индекс = 10) {
+            return "Dama";
+        }
+        if (индекс = 11) {
+            return "Korolb";
+        }
+        return "Tuz";
+    }
+
+    function int ПолучитьЗначениеПоИндексу(int индекс) {
+        if (индекс < 9) {
+            return индекс + 2;    
+        }
+        if (индекс < 12) {
+            return 10;
+        }
+        return 11;
+    }
+}
