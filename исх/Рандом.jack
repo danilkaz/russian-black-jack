@@ -1,0 +1,29 @@
+class Рандом {
+	static int x;
+
+	function void семя(int семя) {
+		let x = семя;
+		return;
+	}
+
+	function int взятьПоМодулю(int число, int модуль) {
+		if (число< 0) {
+			let число= -число;
+		}
+		while ((число + 1) > модуль) {
+			let число = число - модуль;
+		}
+		return число;
+	}
+
+	function int следующееЧисло() {
+		let x = 7919 + (17*x);
+		return x;
+	}
+
+	function int между(int от, int до) {
+		var int разница;
+		let разница = до - от;
+		return от + Рандом.взятьПоМодулю(Рандом.следующееЧисло(), разница);
+	}
+}
