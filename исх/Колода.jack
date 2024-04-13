@@ -2,7 +2,7 @@ class Колода {
     field int индексКолоды;
     field Array карты;
 
-    constructor Колода new() {
+    constructor Колода Новый() {
         let индексКолоды = 0;
 
         let карты = Array.new(52);

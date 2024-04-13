@@ -6,13 +6,13 @@ class Main {
         var Игра игра;
         
         let семя = Keyboard.readInt("Vvedite semya: ");
-        do Рандом.УстановитьСемя(семя);
+        do Случайность.УстановитьСемя(семя);
 
         let количествоИгроков = Keyboard.readInt("Vvedite koli4estvo igrokov: ");
 
         do Экран.Очистить();
 
-        let игра = Игра.new(количествоИгроков);
+        let игра = Игра.Новый(количествоИгроков);
 
         do игра.Стартовать();
 

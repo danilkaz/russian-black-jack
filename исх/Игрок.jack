@@ -1,7 +1,7 @@
 class Игрок {
     field int счёт;
 
-    constructor Игрок new() {
+    constructor Игрок Новый() {
         let счёт = 0;
 
         return this;
