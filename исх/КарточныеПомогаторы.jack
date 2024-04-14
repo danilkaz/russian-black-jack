@@ -1,15 +1,15 @@
 class КарточныеПомогаторы {
     function String ПолучитьМастьПоИндексу(int индекс) {
         if (индекс = 0) {
-            return "piki";
+            return "PIKI";
         } 
         if (индекс = 1) {
-            return "4ervi";
+            return "4ERVI";
         } 
         if (индекс = 2) {
-            return "bubi";
+            return "BUBI";
         }
-        return "kresti";    
+        return "KRESTI";    
     }
 
     function String ПолучитьСтроковоеПредставлениеПоИндексу(int индекс) {
@@ -41,15 +41,15 @@ class КарточныеПомогаторы {
             return "10";
         }
         if (индекс = 9) {
-            return "B";
+            return "VALET";
         }
         if (индекс = 10) {
-            return "D";
+            return "DAMA";
         }
         if (индекс = 11) {
-            return "K";
+            return "KOROLb";
         }
-        return "T";
+        return "TUZ";
     }
 
     function int ПолучитьЗначениеПоИндексу(int индекс) {

@@ -22,13 +22,4 @@ class Карта {
     method int ПолучитьЗначение() {
         return значение;
     }
-
-    method void печатьКарты() {
-        do Output.printString(строковоеПредставление);
-        do Output.printString(" ");
-        do Output.printString(масть);
-        do Output.println();
-
-        return;
-    }
 }

@@ -5,10 +5,10 @@ class Main {
 
         var Игра игра;
         
-        let семя = Keyboard.readInt("Vvedite semya: ");
+        let семя = Keyboard.readInt("VVEDITE SEMYA: ");
         do Случайность.УстановитьСемя(семя);
 
-        let количествоИгроков = Keyboard.readInt("Vvedite koli4estvo igrokov: ");
+        let количествоИгроков = Keyboard.readInt("VVEDITE KOLICHESTVO IGROKOV: ");
 
         do Экран.Очистить();
 

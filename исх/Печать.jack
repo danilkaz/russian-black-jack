@@ -1,64 +1,104 @@
-class Печать{
-    function void ИгрокИнфо(int индексИгрока) {
-        do Output.printString("     Igraet igrok ");
-        do Output.printInt(индексИгрока+1);
+class Печать {
+    function void Карта(Карта карта) {
+        do Output.printString(карта.ПолучитьСтроковоеПредставление());
+        do Output.printString(" ");
+        do Output.printString(карта.ПолучитьМасть());
         do Output.println();
+
+        return;
+    }
+    
+    function void ДилерВыдалКарту(Карта карта) {
+        do Output.printString("DILER VblDAL KARTY: ");
+        do Печать.Карта(карта);
+        do Output.println();
+
         return;
     }
 
-    function void ИгрокИтог(int индексИгрока, Игрок игрок) {
-        do Output.printString("Igrok ");
-        do Output.printInt(индексИгрока+1);
-        do Output.printString(" Zakonchil igru so schetom ");
+    function void СчётИгрока(Игрок игрок) {
+        do Output.printString("VASH SCHET: ");
         do Output.printInt(игрок.ПолучитьСчёт());
         do Output.println();
 
-        do Output.printString("------------------------");
+        return;
+    }
+
+    function void ИнформацияОбИгроке(int индексИгрока) {
+        do Output.printString("     IGRAET IGROK: ");
+        do Output.printInt(индексИгрока + 1);
         do Output.println();
+
+        return;
+    }
+
+    function void ИтогИгрока(int индексИгрока, Игрок игрок) {
+        do Output.printString("IGROK ");
+        do Output.printInt(индексИгрока+1);
+        do Output.printString(" ZAKONCHIL IGRU SO SCHETOM ");
+        do Output.printInt(игрок.ПолучитьСчёт());
+        do Output.println();
+
         return;  
- 
     }
 
     function void Результаты(Array игроки, int количествоИгроков, Игрок дилер) {
         var int индекс;
+        var int счёт;
+        var int счётДилера;
         var Игрок текущийИгрок;
+
         let индекс = 0;
-        while (индекс<количествоИгроков){
+        let счётДилера = дилер.ПолучитьСчёт();
+
+        while (индекс < количествоИгроков) {
             let текущийИгрок = игроки[индекс];
-            do Печать.ИгрокИтог(индекс, текущийИгрок);
-            let индекс = индекс+1;
+            do Печать.ИтогИгрока(индекс, текущийИгрок);
+            
+            let счёт = текущийИгрок.ПолучитьСчёт();
+            
+            if (счёт < 22) {
+                if (((счётДилера < 22) & (счёт > (счётДилера - 1))) | (счётДилера > 21)) {
+                    do Output.printString(" (POBEDITELb) !!!");
+                    do Output.println();
+                }
+            }
+
+            do Output.printString("------------------------");
+            do Output.println();
+            
+            let индекс = индекс + 1;
         }
-        do Output.printString("Schet dilera: ");
+
+        do Output.printString("SCHET DILERA: ");
         do Output.printInt(дилер.ПолучитьСчёт());
 
         return;  
- 
     }
 
     function void Управление() {
-        do Output.printString("              YnpaBleHue");
+        do Output.printString("              YPRAVLENIE");
         do Output.println();
         do Output.println();
 
-        do Output.printString("     knopka D - vidat ctaptoBy|o pyky");
+        do Output.printString("     KNOPKA 'D' - VblDATb STARTOVUY RYKY");
         do Output.println();
 
-        do Output.printString("     knopka H - vidat don. kapty");
+        do Output.printString("     KNOPKA 'H' - VblDATb DOPOLNITELNUY KARTY");
         do Output.println();
 
-        do Output.printString("     knopka S - 3akoH4utb HaBop kapt");
+        do Output.printString("     KNOPKA 'S' - ZAKONCHITb NABOR KART");
 
         do Output.println(); 
         do Output.println();  
         do Output.println();  
  
-        do Output.printString("     Hazhmi D dkya ctapta");
+        do Output.printString("     NAZHMI 'D' DLYA STARTA");
 
         do Output.println(); 
         do Output.println();  
         do Output.println(); 
  
         return; 
-
     }    
 }

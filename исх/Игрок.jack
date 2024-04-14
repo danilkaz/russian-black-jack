@@ -9,13 +9,12 @@ class Игрок {
         return this;
     }
 
-    method void УстановитьСтатус(boolean новыйСтатус){
+    method void УстановитьСтатус(boolean новыйСтатус) {
         let вИгре = новыйСтатус;
         return;
     }
 
-
-    method boolean ПолучитьСтатус(){
+    method boolean ВИгре() {
         return вИгре;
     }
 
@@ -25,9 +24,10 @@ class Игрок {
 
     method void ДобавитьОчки(int количество) {
         let счёт = счёт + количество;
-        if (счёт > 20){
+        if (счёт > 20) {
             let вИгре = false;
         }
+        
         return;
     }
 }
