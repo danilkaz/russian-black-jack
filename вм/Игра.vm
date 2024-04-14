@@ -1,0 +1,391 @@
+function Игра.Новый 0
+push constant 4
+call Memory.alloc 1
+pop pointer 0
+push constant 68
+pop static 0
+push constant 72
+pop static 1
+push constant 83
+pop static 2
+push constant 81
+pop static 3
+push constant 82
+pop static 4
+push argument 0
+pop this 0
+push argument 0
+call Array.new 1
+pop this 1
+call Колода.Новый 0
+pop this 3
+call Игрок.Новый 0
+pop this 2
+push pointer 0
+return
+function Игра.Стартовать 3
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+call Печать.Управление 0
+pop temp 0
+label WHILE_EXP0
+push local 0
+push this 0
+lt
+not
+if-goto WHILE_END0
+push local 0
+push this 1
+add
+call Игрок.Новый 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 0
+push this 1
+add
+pop pointer 1
+push that 0
+pop local 1
+push local 0
+call Печать.ИнформацияОбИгроке 1
+pop temp 0
+push pointer 0
+push local 1
+call Игра.играетИгрок 2
+pop temp 0
+push local 0
+push local 1
+call Печать.ИтогИгрока 2
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push pointer 0
+call Игра.играетДилер 1
+pop temp 0
+push constant 33
+call String.new 1
+push constant 78
+call String.appendChar 2
+push constant 65
+call String.appendChar 2
+push constant 90
+call String.appendChar 2
+push constant 72
+call String.appendChar 2
+push constant 77
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 39
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 39
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 68
+call String.appendChar 2
+push constant 76
+call String.appendChar 2
+push constant 89
+call String.appendChar 2
+push constant 65
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 80
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 75
+call String.appendChar 2
+push constant 65
+call String.appendChar 2
+push constant 90
+call String.appendChar 2
+push constant 65
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 90
+call String.appendChar 2
+push constant 89
+call String.appendChar 2
+push constant 76
+call String.appendChar 2
+push constant 84
+call String.appendChar 2
+push constant 65
+call String.appendChar 2
+push constant 84
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 86
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+label WHILE_EXP1
+push local 2
+push constant 0
+eq
+not
+if-goto WHILE_END1
+call Keyboard.keyPressed 0
+pop local 2
+goto WHILE_EXP1
+label WHILE_END1
+push local 2
+push static 4
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+call Экран.Очистить 0
+pop temp 0
+push this 1
+push this 0
+push this 2
+call Печать.Результаты 3
+pop temp 0
+label IF_FALSE0
+push constant 0
+return
+function Игра.играетИгрок 2
+push argument 0
+pop pointer 0
+label WHILE_EXP0
+push argument 1
+call Игрок.ВИгре 1
+not
+if-goto WHILE_END0
+label WHILE_EXP1
+push local 1
+push constant 0
+eq
+not
+if-goto WHILE_END1
+call Keyboard.keyPressed 0
+pop local 1
+goto WHILE_EXP1
+label WHILE_END1
+push local 1
+push static 0
+eq
+push argument 1
+call Игрок.ПолучитьСчёт 1
+push constant 1
+lt
+and
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push pointer 0
+push argument 1
+call Игра.выдатьНовуюРуку 2
+pop temp 0
+label IF_FALSE0
+push local 1
+push static 3
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push argument 1
+push constant 0
+call Игрок.УстановитьСтатус 2
+pop temp 0
+label IF_FALSE1
+push local 1
+push static 1
+eq
+push argument 1
+call Игрок.ПолучитьСчёт 1
+push constant 21
+lt
+and
+push argument 1
+call Игрок.ПолучитьСчёт 1
+push constant 0
+gt
+and
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push pointer 0
+push argument 1
+call Игра.выдатьДопКарту 2
+pop temp 0
+label IF_FALSE2
+push local 1
+push static 2
+eq
+push argument 1
+call Игрок.ПолучитьСчёт 1
+push constant 1
+gt
+and
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push argument 1
+push constant 0
+call Игрок.УстановитьСтатус 2
+pop temp 0
+label IF_FALSE3
+label WHILE_EXP2
+push local 1
+push constant 0
+eq
+not
+not
+if-goto WHILE_END2
+call Keyboard.keyPressed 0
+pop local 1
+goto WHILE_EXP2
+label WHILE_END2
+goto WHILE_EXP0
+label WHILE_END0
+call Экран.Очистить 0
+pop temp 0
+push constant 0
+return
+function Игра.выдатьНовуюРуку 2
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+call Экран.Очистить 0
+pop temp 0
+push constant 17
+call String.new 1
+push constant 68
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+push constant 76
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 86
+call String.appendChar 2
+push constant 98
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 68
+call String.appendChar 2
+push constant 65
+call String.appendChar 2
+push constant 76
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 80
+call String.appendChar 2
+push constant 89
+call String.appendChar 2
+push constant 75
+call String.appendChar 2
+push constant 89
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+call Output.println 0
+pop temp 0
+call Output.println 0
+pop temp 0
+label WHILE_EXP0
+push local 0
+push constant 2
+lt
+not
+if-goto WHILE_END0
+push this 3
+call Колода.ВыдатьКарту 1
+pop local 1
+push argument 1
+push local 1
+call Карта.ПолучитьЗначение 1
+call Игрок.ДобавитьОчки 2
+pop temp 0
+push local 1
+call Печать.Карта 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push argument 1
+call Печать.СчётИгрока 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push constant 0
+return
+function Игра.выдатьДопКарту 1
+push argument 0
+pop pointer 0
+push this 3
+call Колода.ВыдатьКарту 1
+pop local 0
+push argument 1
+push local 0
+call Карта.ПолучитьЗначение 1
+call Игрок.ДобавитьОчки 2
+pop temp 0
+push local 0
+call Печать.ДилерВыдалКарту 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push argument 1
+call Печать.СчётИгрока 1
+pop temp 0
+push constant 0
+return
+function Игра.играетДилер 1
+push argument 0
+pop pointer 0
+label WHILE_EXP0
+push this 2
+call Игрок.ПолучитьСчёт 1
+push constant 16
+lt
+not
+if-goto WHILE_END0
+push this 3
+call Колода.ВыдатьКарту 1
+pop local 0
+push this 2
+push local 0
+call Карта.ПолучитьЗначение 1
+call Игрок.ДобавитьОчки 2
+pop temp 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return

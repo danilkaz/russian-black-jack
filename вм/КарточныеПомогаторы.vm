@@ -1,0 +1,275 @@
+function КарточныеПомогаторы.ПолучитьМастьПоИндексу 0
+push argument 0
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 4
+call String.new 1
+push constant 80
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+push constant 75
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+return
+label IF_FALSE0
+push argument 0
+push constant 1
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 5
+call String.new 1
+push constant 52
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 86
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+return
+label IF_FALSE1
+push argument 0
+push constant 2
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 4
+call String.new 1
+push constant 66
+call String.appendChar 2
+push constant 85
+call String.appendChar 2
+push constant 66
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+return
+label IF_FALSE2
+push constant 6
+call String.new 1
+push constant 75
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 83
+call String.appendChar 2
+push constant 84
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+return
+function КарточныеПомогаторы.ПолучитьСтроковоеПредставлениеПоИндексу 0
+push argument 0
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 1
+call String.new 1
+push constant 50
+call String.appendChar 2
+return
+label IF_FALSE0
+push argument 0
+push constant 1
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 1
+call String.new 1
+push constant 51
+call String.appendChar 2
+return
+label IF_FALSE1
+push argument 0
+push constant 2
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 1
+call String.new 1
+push constant 52
+call String.appendChar 2
+return
+label IF_FALSE2
+push argument 0
+push constant 3
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push constant 1
+call String.new 1
+push constant 53
+call String.appendChar 2
+return
+label IF_FALSE3
+push argument 0
+push constant 4
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push constant 1
+call String.new 1
+push constant 54
+call String.appendChar 2
+return
+label IF_FALSE4
+push argument 0
+push constant 5
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push constant 1
+call String.new 1
+push constant 55
+call String.appendChar 2
+return
+label IF_FALSE5
+push argument 0
+push constant 6
+eq
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push constant 1
+call String.new 1
+push constant 56
+call String.appendChar 2
+return
+label IF_FALSE6
+push argument 0
+push constant 7
+eq
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
+push constant 1
+call String.new 1
+push constant 57
+call String.appendChar 2
+return
+label IF_FALSE7
+push argument 0
+push constant 8
+eq
+if-goto IF_TRUE8
+goto IF_FALSE8
+label IF_TRUE8
+push constant 2
+call String.new 1
+push constant 49
+call String.appendChar 2
+push constant 48
+call String.appendChar 2
+return
+label IF_FALSE8
+push argument 0
+push constant 9
+eq
+if-goto IF_TRUE9
+goto IF_FALSE9
+label IF_TRUE9
+push constant 5
+call String.new 1
+push constant 86
+call String.appendChar 2
+push constant 65
+call String.appendChar 2
+push constant 76
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 84
+call String.appendChar 2
+return
+label IF_FALSE9
+push argument 0
+push constant 10
+eq
+if-goto IF_TRUE10
+goto IF_FALSE10
+label IF_TRUE10
+push constant 4
+call String.new 1
+push constant 68
+call String.appendChar 2
+push constant 65
+call String.appendChar 2
+push constant 77
+call String.appendChar 2
+push constant 65
+call String.appendChar 2
+return
+label IF_FALSE10
+push argument 0
+push constant 11
+eq
+if-goto IF_TRUE11
+goto IF_FALSE11
+label IF_TRUE11
+push constant 6
+call String.new 1
+push constant 75
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 76
+call String.appendChar 2
+push constant 98
+call String.appendChar 2
+return
+label IF_FALSE11
+push constant 3
+call String.new 1
+push constant 84
+call String.appendChar 2
+push constant 85
+call String.appendChar 2
+push constant 90
+call String.appendChar 2
+return
+function КарточныеПомогаторы.ПолучитьЗначениеПоИндексу 0
+push argument 0
+push constant 9
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 0
+push constant 2
+add
+return
+label IF_FALSE0
+push argument 0
+push constant 12
+lt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 10
+return
+label IF_FALSE1
+push constant 11
+return

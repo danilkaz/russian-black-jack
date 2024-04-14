@@ -1,0 +1,27 @@
+function Карта.Новый 0
+push constant 3
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push argument 1
+pop this 1
+push argument 2
+pop this 2
+push pointer 0
+return
+function Карта.ПолучитьМасть 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Карта.ПолучитьСтроковоеПредставление 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function Карта.ПолучитьЗначение 0
+push argument 0
+pop pointer 0
+push this 2
+return

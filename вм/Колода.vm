@@ -1,0 +1,90 @@
+function Колода.Новый 0
+push constant 2
+call Memory.alloc 1
+pop pointer 0
+push constant 0
+pop this 0
+push constant 52
+call Array.new 1
+pop this 1
+push pointer 0
+call Колода.заполнитьКолоду 1
+pop temp 0
+push this 1
+push constant 52
+call МассивныеПомогаторы.Перемешать 2
+pop this 1
+push pointer 0
+return
+function Колода.ВыдатьКарту 1
+push argument 0
+pop pointer 0
+push this 0
+push this 1
+add
+pop pointer 1
+push that 0
+pop local 0
+push this 0
+push constant 1
+add
+pop this 0
+push local 0
+return
+function Колода.заполнитьКолоду 5
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+label WHILE_EXP0
+push local 0
+push constant 4
+lt
+not
+if-goto WHILE_END0
+push constant 0
+pop local 1
+push local 0
+call КарточныеПомогаторы.ПолучитьМастьПоИндексу 1
+pop local 2
+label WHILE_EXP1
+push local 1
+push constant 13
+lt
+not
+if-goto WHILE_END1
+push local 1
+call КарточныеПомогаторы.ПолучитьСтроковоеПредставлениеПоИндексу 1
+pop local 3
+push local 1
+call КарточныеПомогаторы.ПолучитьЗначениеПоИндексу 1
+pop local 4
+push constant 13
+push local 0
+call Math.multiply 2
+push local 1
+add
+push this 1
+add
+push local 2
+push local 3
+push local 4
+call Карта.Новый 3
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 1
+push constant 1
+add
+pop local 1
+goto WHILE_EXP1
+label WHILE_END1
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
