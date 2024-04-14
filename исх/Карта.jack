@@ -24,9 +24,9 @@ class Карта {
     }
 
     method void печатьКарты() {
-        do Output.printString(масть);
-        do Output.printString(" ");
         do Output.printString(строковоеПредставление);
+        do Output.printString(" ");
+        do Output.printString(масть);
         do Output.println();
 
         return;

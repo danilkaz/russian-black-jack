@@ -1,29 +1,55 @@
 class Игра {
+
+    static char НАЧАТЬ;
+    static char ЕЩЕ;
+    static char ХВАТИТ;
+    static char ВЫЙТИ;
+
     field int количествоИгроков;
     field Array игроки;
+    field Игрок дилер;
     field Колода колода;
 
     constructor Игра Новый(int кол) {
         let количествоИгроков = кол;
-        let игроки = Array.Новый(кол);
+        let игроки = Array.new(кол);
         let колода = Колода.Новый();
-
+        let дилер = Игрок.Новый();
+        let НАЧАТЬ   = 68;              // D key
+        let ЕЩЕ      = 72;              // H key
+        let ХВАТИТ   = 83;              // S key
+        let ВЫЙТИ    = 81;              // Q key
         return this;
     }
 
     method void Стартовать() {
         var int индексИгрока;
+        var Игрок текущийИгрок;
 
         let индексИгрока = 0;
+        do Печать.Управление();
 
         while (индексИгрока < количествоИгроков) {
+
             let игроки[индексИгрока] = Игрок.Новый();
+            let текущийИгрок = игроки[индексИгрока];
+            do Печать.ИгрокИнфо(индексИгрока);
+
             do игратьСИгроком(индексИгрока);
+
+            do Печать.ИгрокИтог(индексИгрока, текущийИгрок);
 
             let индексИгрока = индексИгрока + 1;
         }
         // todo раздать по 2 карты каждому игроку
         // цикл -> идем по каждому игроку и спрашиваем - еще или хватит
+
+        do Output.printString("Igraet diler");
+        do Output.println();
+
+        do играетДилер();
+        do Экран.Очистить();
+        do  Печать.Результаты(игроки, количествоИгроков, дилер);
 
         return;
     }
@@ -31,31 +57,88 @@ class Игра {
     method void игратьСИгроком(int индексИгрока) {
         var Карта карта;
         var Игрок игрок;
+        var char клавиша;                            
 
         let игрок = игроки[индексИгрока];
 
-        let карта = колода.ВыдатьКарту();
-        do игрок.ДобавитьОчки(карта.ПолучитьЗначение());
-
-        do Output.printString("Diler vbldal kartu ");
-        do карта.печатьКарты();
-        do Output.println();
-        do Output.printString("Vash schet ");
-        do Output.printInt(игрок.ПолучитьСчёт());
-        do Output.println();
-
-        let карта = колода.ВыдатьКарту();
-        do игрок.ДобавитьОчки(карта.ПолучитьЗначение());
-
-        do Output.printString("Diler vbldal kartu ");
-        do карта.печатьКарты();
-        do Output.println();
-        do Output.printString("Vash schet ");
-        do Output.printInt(игрок.ПолучитьСчёт());
-        do Output.println();
+        while(игрок.ПолучитьСтатус()) {
+            while (клавиша = 0) {                      // waits for a key to be pressed
+                let клавиша = Keyboard.keyPressed();
+            }
+            if ((клавиша = НАЧАТЬ) & (игрок.ПолучитьСчёт() < 1)) {
+                do выдатьНовуюРуку(игрок);
+            }
+            if (клавиша = ВЫЙТИ) {
+                do игрок.УстановитьСтатус(false);
+            }
+            if ((клавиша = ЕЩЕ) & (игрок.ПолучитьСчёт() < 21) & (игрок.ПолучитьСчёт() > 0)) {
+                do выдатьДопКарту(игрок);
+            }
+            if ((клавиша = ХВАТИТ) & (игрок.ПолучитьСчёт() > 1)) {
+                do игрок.УстановитьСтатус(false);
+            }
+            while (~(клавиша = 0)) {                   
+                let клавиша = Keyboard.keyPressed();
+            }
+        }
+        Экран.Очистить();
 
         return;
     }
+    method void выдатьНовуюРуку(Игрок игрок){
+        var int количествоКарт;
+        var Карта карта;
+        
+        let количествоКарт = 0;
+        
+        do Экран.Очистить();
+        while (количествоКарт < 2){
+            let карта = колода.ВыдатьКарту();
+            do игрок.ДобавитьОчки(карта.ПолучитьЗначение());
+
+            do карта.печатьКарты();
+            do Output.println();
+            do Output.printString("Vash schet ");
+            do Output.printInt(игрок.ПолучитьСчёт());
+            do Output.println();
+            let количествоКарт = количествоКарт + 1;
+        }
+        return;
+    }
+    method void выдатьДопКарту(Игрок игрок){
+        var Карта карта;
+
+        let карта = колода.ВыдатьКарту();
+        do игрок.ДобавитьОчки(карта.ПолучитьЗначение());
+
+        do Output.printString("Diler vbldal kartu ");
+        do карта.печатьКарты();
+        do Output.println();
+        do Output.printString("Vash schet ");
+        do Output.printInt(игрок.ПолучитьСчёт());
+        do Output.println();
+        return;
+    }
+
+
+    method void играетДилер(){
+        var Карта карта;
+        while (дилер.ПолучитьСчёт()<16) {
+            let карта = колода.ВыдатьКарту();
+            do дилер.ДобавитьОчки(карта.ПолучитьЗначение());
+            do Output.printString("Diler vbldal kartu ");
+            do карта.печатьКарты();
+            do Output.println();
+            do Output.printString("Schet dilera ");
+            do Output.printInt(дилер.ПолучитьСчёт());
+            do Output.println();
+        }
+
+        return;
+    }
+
+    
+    
 
 
 }

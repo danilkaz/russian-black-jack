@@ -1,10 +1,22 @@
 class Игрок {
     field int счёт;
+    field boolean вИгре;
 
     constructor Игрок Новый() {
         let счёт = 0;
+        let вИгре = true;
 
         return this;
+    }
+
+    method void УстановитьСтатус(boolean новыйСтатус){
+        let вИгре = новыйСтатус;
+        return;
+    }
+
+
+    method boolean ПолучитьСтатус(){
+        return вИгре;
     }
 
     method int ПолучитьСчёт() {
@@ -13,7 +25,9 @@ class Игрок {
 
     method void ДобавитьОчки(int количество) {
         let счёт = счёт + количество;
-
+        if (счёт > 20){
+            let вИгре = false;
+        }
         return;
     }
 }

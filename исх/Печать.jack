@@ -1,0 +1,64 @@
+class Печать{
+    function void ИгрокИнфо(int индексИгрока) {
+        do Output.printString("     Igraet igrok ");
+        do Output.printInt(индексИгрока+1);
+        do Output.println();
+        return;
+    }
+
+    function void ИгрокИтог(int индексИгрока, Игрок игрок) {
+        do Output.printString("Igrok ");
+        do Output.printInt(индексИгрока+1);
+        do Output.printString(" Zakonchil igru so schetom ");
+        do Output.printInt(игрок.ПолучитьСчёт());
+        do Output.println();
+
+        do Output.printString("------------------------");
+        do Output.println();
+        return;  
+ 
+    }
+
+    function void Результаты(Array игроки, int количествоИгроков, Игрок дилер) {
+        var int индекс;
+        var Игрок текущийИгрок;
+        let индекс = 0;
+        while (индекс<количествоИгроков){
+            let текущийИгрок = игроки[индекс];
+            do Печать.ИгрокИтог(индекс, текущийИгрок);
+            let индекс = индекс+1;
+        }
+        do Output.printString("Schet dilera: ");
+        do Output.printInt(дилер.ПолучитьСчёт());
+
+        return;  
+ 
+    }
+
+    function void Управление() {
+        do Output.printString("              YnpaBleHue");
+        do Output.println();
+        do Output.println();
+
+        do Output.printString("     knopka D - vidat ctaptoBy|o pyky");
+        do Output.println();
+
+        do Output.printString("     knopka H - vidat don. kapty");
+        do Output.println();
+
+        do Output.printString("     knopka S - 3akoH4utb HaBop kapt");
+
+        do Output.println(); 
+        do Output.println();  
+        do Output.println();  
+ 
+        do Output.printString("     Hazhmi D dkya ctapta");
+
+        do Output.println(); 
+        do Output.println();  
+        do Output.println(); 
+ 
+        return; 
+
+    }    
+}
